@@ -29,4 +29,5 @@ node default {
   #   class { 'my_class': }
   include role::classroom
   include review::motd
+  include system::hosts
 }
