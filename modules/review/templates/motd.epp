@@ -1,1 +1,2 @@
 Hello, and welcome to <%= $fqdn %>!
+My IP address is <%= $ipaddress %>
