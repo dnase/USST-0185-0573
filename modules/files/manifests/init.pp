@@ -1,21 +1,21 @@
 class files {
-  file { ['/etc/cron.allow', '/etc/cron.deny']:
+  file { ['/etc/cron.allow', '/etc/cron.deny', '/etc/motd']:
     ensure => file,
   }
   file_line { 'root cron':
-    ensure => present,
-    path   => '/etc/cron.allow',
-    line   => 'root',
+    ensure  => present,
+    path    => '/etc/cron.allow',
+    line    => 'root',
   }
   file_line { 'non-root cron':
-    ensure => present,
-    path   => '/etc/cron.deny',
-    line   => '*',
+    ensure  => present,
+    path    => '/etc/cron.deny',
+    line    => '*',
   }
   concat { '/etc/motd':
-    owner => 'root',
-    group => 'root',
-    mode  => '0644',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
   }
   concat::fragment { 'motd header':
     target  => '/etc/motd',
