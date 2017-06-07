@@ -30,4 +30,5 @@ node default {
   include role::classroom
   include review::motd
   include system::hosts
+  include system::admins
 }
