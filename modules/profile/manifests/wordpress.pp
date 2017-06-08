@@ -12,8 +12,12 @@ class profile::wordpress {
   group { 'wordpress':
     ensure => present,
   }
+  apache::vhost { $::fqdn:
+    port     => '80',
+    priority => '00',
+    docroot  => '/opt/wordpress',
+  }
   class { '::wordpress':
-    install_dir => '/var/www/html',
     wp_owner    => 'wordpress',
     wp_group    => 'wordpress',
     require     => Class['apache'],
