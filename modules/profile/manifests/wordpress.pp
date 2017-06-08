@@ -1,14 +1,14 @@
 class profile::wordpress {
   # manage apache (webserver)
-  require apache
+  require ::apache
   # manage mysql
   class { '::mysql::server':
     root_password => 'puppetlabs',
   }
   # manage PHP bindings for apache/mysql
-  require apache::mod::php
-  require mysql::bindings
-  require mysql::bindings::php
+  require ::apache::mod::php
+  require ::mysql::bindings
+  require ::mysql::bindings::php
   # manage a wordpress user
   user { 'wordpress':
     ensure => present,
