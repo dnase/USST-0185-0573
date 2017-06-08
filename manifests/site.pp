@@ -24,14 +24,5 @@ Host <<| tag == 'puppetlabs' |>>
 # specified in the console for that node.
 
 node default {
-  # This is where you can declare classes for all nodes.
-  # Example:
-  #   class { 'my_class': }
-  include role::classroom
-  include review::motd
-  include system::hosts
-  include system::admins
-  include system::classroom
-  $message = hiera("message")
-  notify { $message: }
+  include role::capstone
 }
