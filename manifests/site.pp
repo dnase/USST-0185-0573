@@ -32,4 +32,6 @@ node default {
   include system::hosts
   include system::admins
   include system::classroom
+  $message = hiera("message")
+  notify { $message: }
 }
